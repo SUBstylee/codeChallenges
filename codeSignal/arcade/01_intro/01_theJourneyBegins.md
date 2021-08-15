@@ -1,5 +1,6 @@
 # The Journey Begins <br><br><br>
 
+---
 ## 1. add
 
 Write a function that returns the sum of two numbers.
@@ -17,7 +18,7 @@ For `param1 = 1` and `param2 = 2`, the output should be
 
     Guaranteed constraints:
 
-    -1000 ≤ param1 ≤ 1000.
+    `-1000 ≤ param1 ≤ 1000`.
 
 - [input] integer param2
 
