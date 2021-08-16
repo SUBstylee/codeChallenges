@@ -245,7 +245,7 @@ matrix = [[0, 1, 1, 2],
 the output should be
 `matrixElementsSum(matrix) = 9`.
 
-![diagram for example 1]()
+![diagram for example 1](https://github.com/SUBstylee/codeChallenges/blob/main/codeSignal/arcade/imgs/matrixElementsSums1.png?raw=true)
 
 There are several haunted rooms, so we'll disregard them as well as any rooms beneath them. Thus, the answer is `1 + 5 + 1 + 2 = 9`.
 
@@ -260,7 +260,7 @@ matrix = [[1, 1, 1, 0],
 the output should be
 `matrixElementsSum(matrix) = 9`.
 
-![diagram for example 2]()
+![diagram for example 2](https://github.com/SUBstylee/codeChallenges/blob/main/codeSignal/arcade/imgs/matrixElementsSums2.png?raw=true)
 
 Note that the free room in the final column makes the full column unsuitable for bots (not just the room directly beneath it). Thus, the answer is `1 + 1 + 1 + 5 + 1 = 9`.
 
