@@ -101,13 +101,48 @@ function shapeArea(n) {
 
 ## 6. makeArrayConsecutive2
 
+Ratiorg got `statues` of different sizes as a present from CodeMaster for his birthday, each statue having an non-negative integer size. Since he likes to make things perfect, he wants to arrange them from smallest to largest so that each statue will be bigger than the previous one exactly by `1`. He may need some additional statues to be able to accomplish that. Help him figure out the minimum number of additional statues needed.
+
+### Example
+
+For `statues = [6, 2, 3, 8]`, the output should be
+`makeArrayConsecutive2(statues) = 3`.
+
+Ratiorg needs statues of sizes `4`, `5` and `7`.
+
+### Input/Output
+
+- [execution time limit] 4 seconds (js)
+
+- [input] array.integer statues
+
+    An array of distinct non-negative integers.
+
+    _Guaranteed constraints:_
+    `1 ≤ statues.length ≤ 10`,
+    `0 ≤ statues[i] ≤ 20`.
+
+- [output] integer
+
+    The minimal number of statues that need to be added to existing `statues` such that it contains every integer size from an interval `[L, R]` (for some `L, R`) and no other sizes.
+
 ### **SOLUTION**
 
 <details>
   <summary>Hidden, click for solution.</summary>
 
 ```javascript
-
+function makeArrayConsecutive2(statues) {
+    let numbers = statues;
+    let count = 0;
+    numbers.sort((a, b) => a - b);
+    for(i=0;i<numbers.length-1;i++){
+        if((numbers[i]-numbers[i+1])<-1){
+            count+=Math.abs(numbers[i]-numbers[i+1])-1;
+        }
+    }    
+    return count;
+}
 ```
 
 </details>
@@ -118,12 +153,70 @@ function shapeArea(n) {
 
 ## 7. almostIncreasingSequence
 
+Given a sequence of integers as an array, determine whether it is possible to obtain a strictly increasing sequence by removing no more than one element from the array.
+
+_Note: sequence `a`<sub>`0`</sub>, `a`<sub>`1`</sub>, ..., `a`<sub>`n`</sub> is considered to be a strictly increasing if a0 < a1 < ... < an. Sequence containing only one element is also considered to be strictly increasing._
+
+### Example
+
+- For `sequence = [1, 3, 2, 1]`, the output should be
+    `almostIncreasingSequence(sequence) = false`.
+
+    <br>
+
+    There is no one element in this array that can be removed in order to get a strictly increasing sequence.
+
+<br>
+
+- For `sequence = [1, 3, 2]`, the output should be
+    `almostIncreasingSequence(sequence) = true`.
+
+    <br>
+
+    You can remove `3` from the array to get the strictly increasing sequence `[1, 2]`. Alternately, you can remove `2` to get the strictly increasing sequence `[1, 3]`.
+
+### Input/Output
+
+- [execution time limit] 4 seconds (js)
+
+- [input] array.integer sequence
+
+    _Guaranteed constraints:_
+    `2 ≤ sequence.length ≤ 10`<sup>`5`</sup>,
+    `-10`<sup>`5`</sup>` ≤ sequence[i] ≤ 10`<sup>`5`</sup>.
+
+- [output] boolean
+
+    Return `true` if it is possible to remove one element from the array in order to get a strictly increasing sequence, otherwise return `false`.
+
 ### **SOLUTION**
 
 <details>
   <summary>Hidden, click for solution.</summary>
 
 ```javascript
+function almostIncreasingSequence(sequence) {
+    //console.log(sequence);
+    let f = false;
+    for (let i=0;i<sequence.length;i++) {
+        if(sequence[i] <= sequence[i-1]) {
+            if(f) {
+                return false;
+        }
+        f = true;
+        if(i === 1 || i + 1 === sequence.length) {
+            continue;
+        }
+        else if (sequence[i] > sequence[i-2]) {
+            sequence[i-1] = sequence[i-2];
+        }
+        else if(sequence[i-1] >= sequence[i+1]) {
+            return false;
+        }
+        }
+    }
+    return true;
+}
 
 ```
 
@@ -135,13 +228,86 @@ function shapeArea(n) {
 
 ## 8 matrixElementsSum
 
+After becoming famous, the CodeBots decided to move into a new building together. Each of the rooms has a different cost, and some of them are free, but there's a rumour that all the free rooms are haunted! Since the CodeBots are quite superstitious, they refuse to stay in any of the free rooms, or any of the rooms below any of the free rooms.
+
+Given `matrix`, a rectangular matrix of integers, where each value represents the cost of the room, your task is to return the total sum of all rooms that are suitable for the CodeBots (ie: add up all the values that don't appear below a `0`).
+
+### Example
+
+For
+
+```
+matrix = [[0, 1, 1, 2], 
+          [0, 5, 0, 0], 
+          [2, 0, 3, 3]]
+```
+
+the output should be
+`matrixElementsSum(matrix) = 9`.
+
+![diagram for example 1]()
+
+There are several haunted rooms, so we'll disregard them as well as any rooms beneath them. Thus, the answer is `1 + 5 + 1 + 2 = 9`.
+
+For
+
+```
+matrix = [[1, 1, 1, 0], 
+          [0, 5, 0, 1], 
+          [2, 1, 3, 10]]
+```
+
+the output should be
+`matrixElementsSum(matrix) = 9`.
+
+![diagram for example 2]()
+
+Note that the free room in the final column makes the full column unsuitable for bots (not just the room directly beneath it). Thus, the answer is `1 + 1 + 1 + 5 + 1 = 9`.
+
+### Input/Output
+
+- [execution time limit] 4 seconds (js)
+
+- [input] array.array.integer matrix
+
+    <br>
+
+    A 2-dimensional array of integers representing the cost of each room in the building. A value of `0` indicates that the room is haunted.
+
+_Guaranteed constraints:_
+`1 ≤ matrix.length ≤ 5`,
+`1 ≤ matrix[i].length ≤ 5`,
+`0 ≤ matrix[i][j] ≤ 10`.
+
+- [output] integer
+    <br>
+    The total price of all the rooms that are suitable for the CodeBots to live in.
+
 ### **SOLUTION**
 
 <details>
   <summary>Hidden, click for solution.</summary>
 
 ```javascript
-
+function matrixElementsSum(matrix) {
+    console.log(matrix);
+    let sum = 0;
+    for(let i=0;i<matrix.length;i++){
+        for(let j=0;j<matrix[i].length;j++){
+            if(matrix[i][j]===0){
+                for(let k=i+1;k<matrix.length;k++){
+                    matrix[k][j]=0;
+                }
+            }
+        }
+    }
+    for(let x=0;x<matrix.length;x++){
+        for(let y=0;y<matrix[x].length;y++){
+            sum+=matrix[x][y];
+        }
+    }
+    return sum;
+}
 ```
 
 </details>
@@ -149,47 +315,3 @@ function shapeArea(n) {
 <br><br><br>
 
 ---
-
-## 1. add
-
-Write a function that returns the sum of two numbers.
-
-### Example
-
-For `param1 = 1` and `param2 = 2`, the output should be
-`add(param1, param2) = 3`.
-
-### Input/Output
-
-- [execution time limit] 4 seconds (js)
-
-- [input] integer param1
-
-    Guaranteed constraints:
-
-    -1000 ≤ param1 ≤ 1000.
-
-- [input] integer param2
-
-    Guaranteed constraints:
-
-    `-1000 ≤ param2 ≤ 1000`.
-
-- [output] integer
-
-    The sum of the two inputs.
-
-### **SOLUTION**
-
-<details>
-  <summary>Hidden, click for solution.</summary>
-
-```javascript
-function add(param1, param2) {
-    return param1 + param2;
-}
-```
-
-</details>
-
-<br><br><br>
