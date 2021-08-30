@@ -10,49 +10,53 @@ Call two people equally strong if their strongest arms are equally strong (the s
 
 Given your and your friend's arms' lifting capabilities find out if you two are equally strong.
 
-Example
+### Example
 
-For yourLeft = 10, yourRight = 15, friendsLeft = 15, and friendsRight = 10, the output should be
-areEquallyStrong(yourLeft, yourRight, friendsLeft, friendsRight) = true;
-For yourLeft = 15, yourRight = 10, friendsLeft = 15, and friendsRight = 10, the output should be
-areEquallyStrong(yourLeft, yourRight, friendsLeft, friendsRight) = true;
-For yourLeft = 15, yourRight = 10, friendsLeft = 15, and friendsRight = 9, the output should be
-areEquallyStrong(yourLeft, yourRight, friendsLeft, friendsRight) = false.
-Input/Output
+- For `yourLeft = 10`, `yourRight = 15`, `friendsLeft = 15`, and `friendsRight = 10`, the output should be
+`areEquallyStrong(yourLeft, yourRight, friendsLeft, friendsRight) = true`;
+- For `yourLeft = 15`, `yourRight = 10`, `friendsLeft = 15`, and `friendsRight = 10`, the output should be
+`areEquallyStrong(yourLeft, yourRight, friendsLeft, friendsRight) = true`;
+- For `yourLeft = 15`, `yourRight = 10`, `friendsLeft = 15`, and `friendsRight = 9`, the output should be
+`areEquallyStrong(yourLeft, yourRight, friendsLeft, friendsRight) = false`.
+### Input/Output
 
-[execution time limit] 4 seconds (js)
+- [execution time limit] 4 seconds (js)
 
-[input] integer yourLeft
+- [input] integer yourLeft
 
-A non-negative integer representing the heaviest weight you can lift with your left arm.
+    A non-negative integer representing the heaviest weight you can lift with your left arm.
 
-Guaranteed constraints:
-0 ≤ yourLeft ≤ 20.
+    _Guaranteed constraints:_
 
-[input] integer yourRight
+    `0 ≤ yourLeft ≤ 20`.
 
-A non-negative integer representing the heaviest weight you can lift with your right arm.
+- [input] integer yourRight
 
-Guaranteed constraints:
-0 ≤ yourRight ≤ 20.
+    A non-negative integer representing the heaviest weight you can lift with your right arm.
 
-[input] integer friendsLeft
+    _Guaranteed constraints:_
 
-A non-negative integer representing the heaviest weight your friend can lift with his or her left arm.
+    `0 ≤ yourRight ≤ 20`.
 
-Guaranteed constraints:
-0 ≤ friendsLeft ≤ 20.
+- [input] integer friendsLeft
 
-[input] integer friendsRight
+    A non-negative integer representing the heaviest weight your friend can lift with his or her left arm.
 
-A non-negative integer representing the heaviest weight your friend can lift with his or her right arm.
+    _Guaranteed constraints:_
 
-Guaranteed constraints:
-0 ≤ friendsRight ≤ 20.
+    `0 ≤ friendsLeft ≤ 20`.
 
-[output] boolean
+- [input] integer friendsRight
 
-true if you and your friend are equally strong, false otherwise.
+    A non-negative integer representing the heaviest weight your friend can lift with his or her right arm.
+
+    _Guaranteed constraints:_
+
+    `0 ≤ friendsRight ≤ 20`.
+
+- [output] boolean
+
+    `true` if you and your friend are equally strong, `false` otherwise.
 
 ### **SOLUTION**
 
@@ -75,24 +79,26 @@ function areEquallyStrong(yourLeft, yourRight, friendsLeft, friendsRight) {
 
 Given an array of integers, find the maximal absolute difference between any two of its adjacent elements.
 
-Example
+### Example
 
-For inputArray = [2, 4, 1, 0], the output should be
-arrayMaximalAdjacentDifference(inputArray) = 3.
+For `inputArray = [2, 4, 1, 0]`, the output should be
+`arrayMaximalAdjacentDifference(inputArray) = 3`.
 
-Input/Output
+### Input/Output
 
-[execution time limit] 4 seconds (js)
+- [execution time limit] 4 seconds (js)
 
-[input] array.integer inputArray
+- [input] array.integer inputArray
 
-Guaranteed constraints:
-3 ≤ inputArray.length ≤ 10,
--15 ≤ inputArray[i] ≤ 15.
+    _Guaranteed constraints:_
 
-[output] integer
+    `3 ≤ inputArray.length ≤ 10`,
 
-The maximal absolute difference.
+    `-15 ≤ inputArray[i] ≤ 15`.
+
+- [output] integer
+
+    The maximal absolute difference.
 
 ### **SOLUTION**
 
@@ -132,39 +138,40 @@ function arrayMaximalAdjacentDifference(inputArray) {
 
 ## 21. idIPv4Address
 
-An IP address is a numerical label assigned to each device (e.g., computer, printer) participating in a computer network that uses the Internet Protocol for communication. There are two versions of the Internet protocol, and thus two versions of addresses. One of them is the IPv4 address.
+An IP address is a numerical label assigned to each device (e.g., computer, printer) participating in a computer network that uses the Internet Protocol for communication. There are two versions of the Internet protocol, and thus two versions of addresses. One of them is the [IPv4 address](https://en.wikipedia.org/wiki/IPv4).
 
 Given a string, find out if it satisfies the IPv4 address naming rules.
 
-Example
+### Example
 
-For inputString = "172.16.254.1", the output should be
-isIPv4Address(inputString) = true;
+- For `inputString = "172.16.254.1"`, the output should be
+`isIPv4Address(inputString) = true`;
 
-For inputString = "172.316.254.1", the output should be
-isIPv4Address(inputString) = false.
+- For `inputString = "172.316.254.1"`, the output should be
+`isIPv4Address(inputString) = false`.
 
-316 is not in range [0, 255].
+    `316` is not in range `[0, 255]`.
 
-For inputString = ".254.255.0", the output should be
-isIPv4Address(inputString) = false.
+- For `inputString = ".254.255.0"`, the output should be
+`isIPv4Address(inputString) = false`.
 
-There is no first number.
+    There is no first number.
 
-Input/Output
+### Input/Output
 
-[execution time limit] 4 seconds (js)
+- [execution time limit] 4 seconds (js)
 
-[input] string inputString
+- [input] string inputString
 
-A string consisting of digits, full stops and lowercase English letters.
+    A string consisting of digits, full stops and lowercase English letters.
 
-Guaranteed constraints:
-1 ≤ inputString.length ≤ 30.
+    _Guaranteed constraints:_
 
-[output] boolean
+    `1 ≤ inputString.length ≤ 30`.
 
-true if inputString satisfies the IPv4 address naming rules, false otherwise.
+- [output] boolean
+
+    `true` if `inputString` satisfies the IPv4 address naming rules, `false` otherwise.
 
 ### **SOLUTION**
 
@@ -199,34 +206,34 @@ function isIPv4Address(inputString) {
 
 You are given an array of integers representing coordinates of obstacles situated on a straight line.
 
-Assume that you are jumping from the point with coordinate 0 to the right. You are allowed only to make jumps of the same length represented by some integer.
+Assume that you are jumping from the point with coordinate `0` to the right. You are allowed only to make jumps of the same length represented by some integer.
 
 Find the minimal length of the jump enough to avoid all the obstacles.
 
-Example
+### Example
 
-For inputArray = [5, 3, 6, 7, 9], the output should be
-avoidObstacles(inputArray) = 4.
+For `inputArray = [5, 3, 6, 7, 9]`, the output should be
+`avoidObstacles(inputArray) = 4`.
 
 Check out the image below for better understanding:
 
 ![Example image](https://github.com/SUBstylee/codeChallenges/blob/main/codeSignal/arcade/imgs/avoidObstacles.png?raw=true)
 
-Input/Output
+### Input/Output
 
-[execution time limit] 4 seconds (js)
+- [execution time limit] 4 seconds (js)
 
-[input] array.integer inputArray
+- [input] array.integer inputArray
 
-Non-empty array of positive integers.
+    Non-empty array of positive integers.
 
-Guaranteed constraints:
-2 ≤ inputArray.length ≤ 1000,
-1 ≤ inputArray[i] ≤ 1000.
+    _Guaranteed constraints:_
+    `2 ≤ inputArray.length ≤ 1000`,
+`1 ≤ inputArray[i] ≤ 1000`.
 
-[output] integer
+- [output] integer
 
-The desired length.
+    The desired length.
 
 ### **SOLUTION**
 
@@ -253,7 +260,7 @@ function avoidObstacles(inputArray) {
 
 ---
  
-## 23. boxBlur
+## ~~23. boxBlur~~
 
 ### **SOLUTION**
 
@@ -270,7 +277,7 @@ function avoidObstacles(inputArray) {
 
 ---
  
-## 24. mineSweeper
+## ~~24. mineSweeper~~
 
 ### **SOLUTION**
 

@@ -1,5 +1,6 @@
 # Edge of the Ocean <br><br><br>
 
+---
 ## 4. adjacentElementsProduct
 
 Given an array of integers, find the pair of adjacent elements that has the largest product and return that product.
