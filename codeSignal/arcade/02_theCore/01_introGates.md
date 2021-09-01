@@ -159,7 +159,7 @@ For `nCols = 16`, `nRows = 11`, `col = 5`, and `row = 3`, the output should be
 
 Here is what the theater looks like:
 
-![Example image](https://github.com/SUBstylee/codeChallenges/blob/main/codeSignal/arcade/imgs/seatsInThreater.png?raw=true)
+![Example image](https://github.com/SUBstylee/codeChallenges/blob/main/codeSignal/arcade/imgs/seatsInTheater.png?raw=true)
 
 ### Input/Output
 
